@@ -27,3 +27,19 @@ Thumbs.db
 .aiox-core/local/
 .claude/settings.local.json
 .aiox/install-log.txt
+
+# AIOX Framework (não faz parte do produto)
+.aiox-core/
+.claude/
+.codex/
+.cursor/
+.gemini/
+.antigravity/
+AGENTS.md
+
+# GitHub — ignorar tudo exceto workflows de CI/CD
+.github/*
+!.github/workflows/
+
+# Ambiente
+.env.example
