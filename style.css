@@ -1,0 +1,195 @@
+:root {
+  --bege-claro:  #F5E6D3;
+  --bege-medio:  #EDD9BC;
+  --bege-areia:  #D4B896;
+  --marrom-claro:#C49A6C;
+  --marrom:      #8B5E3C;
+  --marrom-rico: #6B4226;
+  --marrom-esc:  #4A2F1A;
+  --marrom-preto:#2C1810;
+  --shadow:      rgba(74, 47, 26, 0.28);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100dvh;
+  background: radial-gradient(ellipse at 50% 10%, #F0DCC5, #DEAD8E);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  padding: 24px 16px;
+}
+
+/* ── Página ── */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 360px;
+}
+
+/* ── Cabeçalho ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.galgo {
+  width: clamp(180px, 60vw, 240px);
+  height: auto;
+  filter: drop-shadow(2px 4px 8px var(--shadow));
+}
+
+.title {
+  font-size: clamp(1.55rem, 5vw, 1.95rem);
+  font-weight: 400;
+  color: var(--marrom-esc);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--marrom-rico);
+}
+
+/* ── Calculadora ── */
+.calculator {
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 14px 44px var(--shadow),
+    0 3px 10px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(107, 66, 38, 0.20);
+}
+
+/* ── Display ── */
+.display {
+  background: var(--marrom-esc);
+  padding: 22px 22px 16px;
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 2px;
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+}
+
+.display-op {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(245, 230, 211, 0.42);
+  min-height: 20px;
+  letter-spacing: 0.06em;
+  font-style: italic;
+}
+
+.display-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--bege-claro);
+  letter-spacing: 0.01em;
+  word-break: break-all;
+  line-height: 1;
+  transition: font-size 0.1s;
+}
+
+/* ── Grade de botões ── */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(107, 66, 38, 0.18);
+  background-color: var(--bege-areia);
+}
+
+/* ── Botão base ── */
+.btn {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.15rem, 4vw, 1.45rem);
+  height: clamp(64px, 17vw, 78px);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.13s ease, color 0.13s ease, transform 0.08s ease;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: background 0.1s;
+  pointer-events: none;
+}
+
+.btn:hover::after  { background: rgba(255, 255, 255, 0.11); }
+.btn:active        { transform: scale(0.92); }
+.btn:focus-visible { outline: 2px solid var(--marrom); outline-offset: -2px; }
+
+/* ── Variantes ── */
+.btn-num {
+  background: var(--bege-medio);
+  color: var(--marrom-esc);
+  font-weight: 500;
+}
+
+.btn-util {
+  background: var(--bege-areia);
+  color: var(--marrom-rico);
+  font-weight: 500;
+}
+
+.btn-op {
+  background: var(--marrom);
+  color: var(--bege-claro);
+  font-size: clamp(1.25rem, 4.5vw, 1.55rem);
+  font-weight: 600;
+}
+
+/* Operador ativo (selecionado, aguardando segundo operando) */
+.btn-op.active {
+  background: var(--bege-claro);
+  color: var(--marrom);
+}
+
+.btn-eq {
+  background: var(--marrom-esc);
+  color: var(--bege-claro);
+  font-size: clamp(1.3rem, 4.5vw, 1.6rem);
+  font-weight: 700;
+}
+
+.btn-eq:hover::after { background: rgba(255, 255, 255, 0.07); }
+
+/* ── Rodapé ── */
+.footer {
+  color: var(--marrom-rico);
+  font-style: italic;
+  font-size: 0.83rem;
+  opacity: 0.65;
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsivo extra-pequeno ── */
+@media (max-width: 340px) {
+  .display-value { font-size: 2.4rem; }
+  .btn { font-size: 1.1rem; height: 58px; }
+}

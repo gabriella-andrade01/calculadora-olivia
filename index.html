@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Olivia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="header">
+      <svg class="galgo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 135"
+           role="img" aria-label="Silhueta de Galgo Italiano">
+        <g fill="#8B5E3C">
+          <!-- Corpo principal -->
+          <ellipse cx="128" cy="72" rx="78" ry="22" transform="rotate(-6 128 72)"/>
+          <!-- Peito -->
+          <ellipse cx="200" cy="80" rx="16" ry="15" transform="rotate(10 200 80)"/>
+          <!-- Pescoço longo -->
+          <ellipse cx="210" cy="55" rx="24" ry="12" transform="rotate(32 210 55)"/>
+          <!-- Cabeça estreita -->
+          <ellipse cx="236" cy="38" rx="17" ry="12"/>
+          <!-- Focinho longo -->
+          <ellipse cx="255" cy="46" rx="16" ry="8"/>
+          <!-- Nariz -->
+          <circle cx="270" cy="48" r="4" fill="#2C1810"/>
+          <!-- Olho -->
+          <circle cx="238" cy="34" r="5" fill="#F5E6D3"/>
+          <circle cx="238" cy="34" r="2.8" fill="#1A0A05"/>
+          <circle cx="237" cy="33" r="1" fill="rgba(255,255,255,0.65)"/>
+          <!-- Orelha rosa (característica do galgo) -->
+          <ellipse cx="226" cy="27" rx="6" ry="10" fill="#6B4226" transform="rotate(-15 226 27)"/>
+          <!-- Cauda longa e fina -->
+          <path d="M 52 68 C 40 58 32 44 38 32 C 41 24 49 22 52 28"
+                stroke="#8B5E3C" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <!-- Pata traseira próxima -->
+          <rect x="89" y="90" width="11" height="39" rx="5.5"/>
+          <!-- Pata traseira distante -->
+          <rect x="106" y="92" width="10" height="37" rx="5" fill="#7A5233"/>
+          <!-- Pata dianteira próxima -->
+          <rect x="185" y="92" width="11" height="37" rx="5.5"/>
+          <!-- Pata dianteira distante -->
+          <rect x="169" y="92" width="10" height="35" rx="5" fill="#7A5233"/>
+          <!-- Patinhas -->
+          <ellipse cx="94" cy="129" rx="7" ry="3.5" fill="#6B4226"/>
+          <ellipse cx="190" cy="129" rx="7" ry="3.5" fill="#6B4226"/>
+        </g>
+      </svg>
+      <h1 class="title">Calculadora <em>Olivia</em></h1>
+    </header>
+
+    <main class="calculator" role="application" aria-label="Calculadora Olivia">
+      <div class="display" aria-live="polite" aria-atomic="true">
+        <div class="display-op" id="display-op" aria-hidden="true">&nbsp;</div>
+        <div class="display-value" id="display-value">0</div>
+      </div>
+
+      <div class="buttons" role="group" aria-label="Teclas da calculadora">
+        <button class="btn btn-util" onclick="calc.clear()" aria-label="Limpar tudo">C</button>
+        <button class="btn btn-util" onclick="calc.backspace()" aria-label="Apagar último dígito">⌫</button>
+        <button class="btn btn-util" onclick="calc.percentage()" aria-label="Porcentagem">%</button>
+        <button class="btn btn-op"  id="op-div" onclick="calc.setOp('÷')" aria-label="Dividir">÷</button>
+
+        <button class="btn btn-num" onclick="calc.digit('7')" aria-label="7">7</button>
+        <button class="btn btn-num" onclick="calc.digit('8')" aria-label="8">8</button>
+        <button class="btn btn-num" onclick="calc.digit('9')" aria-label="9">9</button>
+        <button class="btn btn-op"  id="op-mul" onclick="calc.setOp('×')" aria-label="Multiplicar">×</button>
+
+        <button class="btn btn-num" onclick="calc.digit('4')" aria-label="4">4</button>
+        <button class="btn btn-num" onclick="calc.digit('5')" aria-label="5">5</button>
+        <button class="btn btn-num" onclick="calc.digit('6')" aria-label="6">6</button>
+        <button class="btn btn-op"  id="op-sub" onclick="calc.setOp('−')" aria-label="Subtrair">−</button>
+
+        <button class="btn btn-num" onclick="calc.digit('1')" aria-label="1">1</button>
+        <button class="btn btn-num" onclick="calc.digit('2')" aria-label="2">2</button>
+        <button class="btn btn-num" onclick="calc.digit('3')" aria-label="3">3</button>
+        <button class="btn btn-op"  id="op-add" onclick="calc.setOp('+')" aria-label="Somar">+</button>
+
+        <button class="btn btn-util" onclick="calc.toggleSign()" aria-label="Trocar sinal">±</button>
+        <button class="btn btn-num"  onclick="calc.digit('0')" aria-label="0">0</button>
+        <button class="btn btn-util" onclick="calc.decimal()" aria-label="Ponto decimal">.</button>
+        <button class="btn btn-eq"   onclick="calc.equals()" aria-label="Igual">=</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>feita com amor para Olivia 🐾</span>
+    </footer>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
