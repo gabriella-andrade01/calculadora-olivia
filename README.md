@@ -1,4 +1,4 @@
-# Calculadora Olivia 🐕
+# Calculadora Olivia 
 
 Calculadora web com tema **Galgo Italiano** — elegante, afetiva e completamente funcional.
 
